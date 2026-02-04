@@ -1,0 +1,198 @@
+/* ตั้งค่าพื้นฐาน */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Kanit', sans-serif;
+    background-color: #ffffff;
+    /* ขาว */
+    color: #000000;
+    /* ดำ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* การจัดการหน้าจอ (Screen Management) */
+.screen {
+    display: none;
+    /* ซ่อนทุกหน้าก่อน */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.screen.active {
+    display: block;
+    /* แสดงเฉพาะหน้าที่มี class active */
+    opacity: 1;
+    animation: fadeIn 0.8s forwards;
+}
+
+/* Typography */
+h1 {
+    font-weight: 600;
+    letter-spacing: -1px;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-weight: 300;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+/* Input Area */
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+    transition: border 0.3s;
+}
+
+textarea:focus {
+    border-color: #000;
+}
+
+/* Buttons */
+button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 40px;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #eee;
+    margin-bottom: 30px;
+    border-radius: 2px;
+}
+
+#progress-fill {
+    height: 100%;
+    background-color: #000;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Result Section */
+.result-item {
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+
+.result-question {
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.answer-box {
+    margin-bottom: 8px;
+}
+
+.label {
+    font-size: 0.8rem;
+    color: #888;
+    margin-right: 5px;
+    font-weight: 600;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* เพิ่มใน style.css */
+.room-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+input[type="text"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Kanit';
+}
+
+.divider {
+    margin: 10px 0;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.btn-secondary {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.btn-secondary:hover {
+    background-color: #f0f0f0;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #000;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

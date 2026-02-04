@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relationship Sync Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <section id="lobby-screen" class="screen active">
+            <h1>Relationship Sync.</h1>
+            <p>เชื่อมต่อความรู้สึกผ่านระบบออนไลน์</p>
+
+            <div class="room-controls">
+                <button onclick="createRoom()" class="btn-primary">สร้างห้องใหม่</button>
+                <div class="divider">หรือ</div>
+                <input type="text" id="room-code-input" placeholder="ใส่รหัสห้องเพื่อนเข้าร่วม" maxlength="6">
+                <button onclick="joinRoom()" class="btn-secondary">เข้าร่วมห้อง</button>
+            </div>
+            <p id="lobby-status" class="status-text"></p>
+        </section>
+
+        <section id="waiting-screen" class="screen">
+            <h1>Waiting...</h1>
+            <p>รหัสห้องของคุณคือ:</p>
+            <h2 id="display-room-code" style="font-size: 3rem; letter-spacing: 5px;">-</h2>
+            <p>กรุณาบอกรหัสนี้ให้อีกฝ่ายเพื่อเริ่มเกม</p>
+            <div class="loader"></div>
+        </section>
+
+        <section id="quiz-screen" class="screen">
+            <div class="progress-bar">
+                <div id="progress-fill"></div>
+            </div>
+            <h2 id="question-text">...</h2>
+            <textarea id="answer-input" placeholder="พิมพ์คำตอบของคุณ..."></textarea>
+            <button onclick="submitAnswer()">ส่งคำตอบ</button>
+            <p id="waiting-partner" style="display:none; color:#888;">รออีกฝ่ายตอบสักครู่...</p>
+        </section>
+
+        <section id="result-screen" class="screen">
+            <h1>Synced Complete.</h1>
+            <div id="result-container" class="result-list"></div>
+        </section>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

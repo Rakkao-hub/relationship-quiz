@@ -80,12 +80,14 @@ function joinRoom() {
 function listenToRoom() {
     onValue(ref(db, 'rooms/' + roomId), (snapshot) => {
         const data = snapshot.val();
+        
+        if (!data) { alert("ไม่พบห้องนี้! ตรวจสอบรหัสอีกครั้ง"); location.reload(); return; }
 
-        if (!data) { alert("ไม่พบห้องนี้!"); location.reload(); return; }
-
-        // 1. ถ้าสถานะเป็น playing ให้เริ่มเกม
-        if (data.status === 'playing' && document.getElementById('waiting-screen').classList.contains('active')) {
-            startGameUI();
+        // [แก้ตรงนี้] : ถ้าสถานะเป็น playing และเรายังไม่อยู่ในหน้าเกม -> ให้เริ่มเกมเลย
+        if (data.status === 'playing') {
+            if (!document.getElementById('quiz-screen').classList.contains('active')) {
+                startGameUI();
+            }
         }
 
         // 2. เช็คว่าจบเกมหรือยัง (ทั้งคู่ตอบครบ)
